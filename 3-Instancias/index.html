@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instancias</title>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+        //La instancia de la aplicación nos permite registrar propiedades globales que puedan ser usadas por los componentes dentro de nuestra aplicación.
+        const app = Vue.createApp({});
+
+        //Aqui se definen los componentes globales que van a ser usados por los componentes o subcomponentes
+        const MyComponent = {
+            //El metodo data retorna una serie de propiedades o valores para esta instancia del componente
+            data(){
+                return{
+                    "hello" : "Hola Mundo en Vue"
+                }
+            }
+        }
+
+        app.component('MyComponent', MyComponent)
+
+        //También podemos concatenat otros métodos para registrar componentes o usar siertos módulos.
+        const appEj1 = Vue.createApp({})
+        app.component('SearchInput', SearchInputComponent)
+        app.directive('focus', FocusDirective)
+        app.use(LocalePlugin)
+
+        //Podemos registar los componentes que vamos a utilizar
+        //app.use(Plugins)
+
+        //Como la mayoría de las instancias retornan la misma instancia, podemos concatenar los métodos:
+        Vue.createApp({})
+        .component('SearchInput', SearchInputComponent)
+        .directive('focus', FocusDirective)
+        .use(LocalePlugin)
+
+        //Dentro de la instancia se pueden concatenar componentes, ya que cada uno retorna una instancia de esta aplicacion
+        const appEj2 = Vue.createApp({}).use(LocalPlugin).component().directive();
+
+    </script>
+    
+</body>
+</html>

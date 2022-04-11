@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedades de los componentes</title>
+</head>
+<body>
+
+    <div id="app">
+        <like-component></like-component>
+        <like-component></like-component>
+        <like-component></like-component>
+        <like-component></like-component>
+        <like-component></like-component>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+        const app = Vue.createApp({});
+
+        app.component('LikeComponent', {
+
+            template:`
+            {{count}}
+            <button v-on:click="increment">Like</button>
+            <button v-on:click="decrement">Dislike</button>
+            <br>
+            `,
+
+            //Existen varias propiedades que podemos pasar a una instancia de componentes, ya sea el componente raíz o subcomponentes
+            data () {
+                return {
+                    name : "Pablo",
+                    count :0
+                }
+                },
+                methods: {
+                    increment () {
+                        this.count++;
+                    },
+                    decrement() {
+                        this.count--;
+                    }
+
+                }
+        })
+
+        const vm = app.mount('#app');
+
+    </script>
+    
+</body>
+</html>
