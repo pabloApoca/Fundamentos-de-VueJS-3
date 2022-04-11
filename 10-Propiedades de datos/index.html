@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedades de datos</title>
+</head>
+<body>
+    <!--Todo componente de Vue tiene una propiedad, que en realidad es una función llamada data. Vue llama esta función como parte de la creación de un componente.
+
+La función data debe retornar un objeto que Vue empaquetará en su sistema de reactividad y la almacenará en la instancia del componente como $data-->
+    <div id="app"></div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+        const app = Vue.createApp({});
+        
+        const vm = app.mount('#app');
+
+    </script>
+   <!--Se recomienda que todas las propiedades de un objeto estén presentes dentro del objeto que retorna data, de esta manera Vue las tendrá presente en el sistema reactivo.
+
+Es posible añadir nuevas propiedades, sin embargo estas no tendrán el comportamiento reactivo de manera automática.--> 
+</body>
+</html>

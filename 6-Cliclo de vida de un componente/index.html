@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliclo de vida de un componente</title>
+</head>
+<body>
+    <div id="app">
+        {{count}}
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+
+        //Cada instancia de un componente pasa por una serie de pasos para su inicialización, desde la observación de los datos hasta la actualización de los mismo.
+        //A lo largo de estos pasos existen algunos callback llamados lifecycle hooks, los cuales nos dan oportunidad de añadir nuestro propio código en puntos específicos del ciclo de vida del componente.
+
+        const app = Vue.createApp({
+
+            beforeCreate(){
+                console.log('beforeCreate');
+                console.log(this.count)
+            },
+            created(){
+                console.log('created');
+                console.log(this.count)
+            },
+            data(){
+                return{
+                    count: 500
+                }
+            }
+        });
+        
+        const vm = app.mount('#app');
+
+    </script>
+    
+</body>
+</html>

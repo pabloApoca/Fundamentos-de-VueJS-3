@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directivas</title>
+</head>
+<body>
+    <div id="app">
+
+        <!--Las directivas son atributos especiales con el prefijo v-.
+
+        El trabajo de una directiva es aplicar de forma reactiva efectos secundarios al DOM cuando cambia el valor de su expresión.-->
+        <p v-if="show">Esto es un texto cualquiera</p>
+
+        <a v-bind:[attrname]="url" >Esto es un link</a> <br>
+        <a :href="url">Esto es un link, abreviatura</a> <br>
+        <a :[attrname]="url" >Esto es un link, abreviatura y dinamico</a> <br>
+
+
+        <form v-on:submit.prevent="submitForm">
+            <button type="submit">Enviar</button>
+        </form>
+        <form @submit.prevent="submitForm">
+            <button type="submit">Enviar</button>
+        </form>
+        <form @[submitevent].prevent="submitForm">
+            <button type="submit">Enviar</button>
+        </form>
+
+
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    show: true,
+                    attrname:'href',
+                    url: 'https://www.linkedin.com/in/pablo-martin-lopez/',
+                    submitevent: 'submit'
+                }
+            },
+            methods:{
+                submitForm(){
+                    console.log('Formulario enviado.')
+                }
+            }
+        });
+        
+        const vm = app.mount('#app');
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interpolación de texto</title>
+</head>
+<body>
+    
+    <div id="app">
+        <p>{{ (age>18) ? 'Mayor de edad' : 'Menor de edad' }}</p>
+        <span v-once>Este nombre no va a cambiar: {{ name }}</span>
+    </div>
+
+    
+    <script src="https://unpkg.com/vue@next"></script>
+        
+    
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    name: 'Pablo',
+                    age: 28
+                }
+            }
+        });
+        
+        const vm = app.mount('#app');
+
+        //VueJS nos ofrece la posibilidad de vincular el valor de las propiedades del método data con lo que se muestra en el DOM, esta vinculación o interpolación de texto es reactiva. Lo que significa que si el valor de una propiedad es modificado, estos cambios se verán reflejados inmediatamente en el DOM.
+
+    </script>
+    
+    
+</body>
+</html>

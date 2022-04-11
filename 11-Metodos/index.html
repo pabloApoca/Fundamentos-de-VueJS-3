@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodos</title>
+</head>
+
+<body>
+    <!--Para agregar métodos a la instancia de un componente usamos la propiedad methods.
+
+La propiedad methods debe ser un objeto que contenga todos los métodos deseados.-->
+    <div id="app">
+        <button @click="showAlert">Mostrar alerta</button>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    name: 'Pablo'
+                }
+            },
+            methods: {
+                showAlert() {
+                    this.changeName('Martin');
+                    alert('Hola ' + this.name)
+                },
+
+                changeName(name) {
+                    this.name = name;
+                }
+            }
+        });
+
+        const vm = app.mount('#app');
+
+    </script>
+
+    <!--Vue nos permite vincular this a los métodos y propiedades para que siempre se refieran a la instancia de componente. Debe evitar el uso de funciones flecha para que Vue vincule el valor de this apropiadamente.
+
+    También podemos acceder a los métodos desde la plantilla del componente:-->
+
+    <!--Debe tener en cuenta que los métodos llamados desde una plantilla no deben tener efectos secundarios o desencadenar procesos asíncronos, en su lugar considere usar los lifecycle hooks-->
+
+
+</body>
+
+</html>
