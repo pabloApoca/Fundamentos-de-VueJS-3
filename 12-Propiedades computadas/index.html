@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedades computadas</title>
+</head>
+<body>
+    <!--Poder escribir expresiones de JS directamente en la plantilla puede resultar una herramienta muy util, sin embargo habrá algunos valores que requieran más de una expresión o simplemente mejorar la legibilidad del código.
+
+Para ello Vue nos ofrece las propiedades calculadas.
+
+Por ejemplo considere que tiene el nombre y apellido de una persona en dos propiedades separadas-->
+    <div id="app">
+        {{fullName}}
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    name: "Pablo Martin",
+                    last_name: "Lopez"
+                }
+            },
+            computed: {
+                fullName() {
+                    return this.name + ' ' + this.last_name
+                }
+            }
+        });
+    
+        const vm = app.mount('#app');
+
+    </script>
+
+    <!--Lo mejor de todo es que la propiedad computada guarda la reactividad ante los cambios de name o lastName.
+
+Otro punto a favor de las propiedades computadas, es que a diferencia de los métodos, son almacenadas en cache de acuerdo con sus dependencias reactivas. Las propiedades computadas solo son reevaluadas cuando alguna de sus dependencias reactivas es modificada.
+
+En nuestro ejemplo esto significa que, mientras los valores de name y lastName no sufran modificaciones, fullName no será reevaluada.
+
+En los casos en los que usted no quiera usar la cache, deberá emplear un método en su lugar.-->
+    
+</body>
+</html>

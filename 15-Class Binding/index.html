@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .active{
+            color : green;
+        }
+        .error{
+            color : red;
+        }
+    </style>
+    
+    <title>Class Binding</title>
+</head>
+<body>
+    <!--Para mostrar las clases o estilos podemos hacer uso de v-bind para renderizar las cadenas, sin embargo lidiar con la concatenación de strings suele ser algo difícil de mantener.
+
+    Por lo cual Vue ofrece una experiencia distinta para el manejo de los atributos de clases y estilos.-->
+    <div id="app">
+        <p :class="{ active: isActive, error: hasError}"> Hola</p>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+	<script>
+ 
+		const app = Vue.createApp({
+			data() {
+				return {
+					isActive: true,
+					hasError: false
+				}
+			}
+		}).mount('#app');
+
+    </script>
+    
+</body>
+</html>
