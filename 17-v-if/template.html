@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>If con template</title>
+</head>
+
+<body>
+    <!--Debido a que v-if solo puede ser incrustado dentro de un solo elemento, podemos hacer uso del contenedor invisible <template></template> para afectar a más de un elemento:-->
+    <div id="app">
+        <template v-if="ok">
+            <h1>If con template</h1>
+            <p>Si ok es true se va a mostrar este template</p>
+            <p>Si ok es false no se va a mostrar este template</p>
+          </template>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    ok: true
+                }
+            }
+        });
+
+        //Probar en consola vm.$data.ok = false
+
+        const vm = app.mount('#app');
+
+    </script>
+
+</body>
+
+</html>
