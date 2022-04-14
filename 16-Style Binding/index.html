@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base</title>
+</head>
+<body>
+    <!--Sintaxis del objeto
+
+    La sintaxis del objeto para :style es bastante sencilla. Se parece casi a CSS, excepto que es un objeto de JavaScript.
+    
+    Puede usar camelCase o kebab-case (use comillas con kebab-case) para los nombres de las propiedades CSS:-->
+    <div id="app">
+            <!--<div :style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>-->
+    <div :style="[styleObject]">Hola planeta</div>
+    </div>
+
+
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+        const app = Vue.createApp({
+            /*data() {
+  return {
+    activeColor: 'red',
+    fontSize: 30
+  }
+}*/
+data() {
+  return {
+    styleObject: {
+      color: 'red',
+      fontSize: '30px'
+    }
+  }
+}
+        });
+        
+        const vm = app.mount('#app');
+
+    </script>
+    
+</body>
+</html>
