@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificadores</title>
+</head>
+<body>
+    <div id="app">
+        <button @click.prevent="myEvent">Hacer algo</button>
+        <form @submit.prevent.stop="submitForm()">
+            <input type="text" @keyup.alt.enter="pressEnter()"/>
+        </form>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data (){
+                return{
+                    count: 0
+                }
+            },
+            methods:{
+                myEvent(){
+                    console.log("Print de evento")
+                },
+                submitForm(){
+                    console.log("Enviar Form");
+                },
+                pressEnter(){
+                    console.log("Enter o Alt")
+                }
+            }
+        });
+        
+        const vm = app.mount('#app');
+
+    </script>
+    
+</body>
+</html>
