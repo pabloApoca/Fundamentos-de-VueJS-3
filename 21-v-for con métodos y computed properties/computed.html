@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computed</title>
+</head>
+
+<body>
+    <!--En algunos casos vamos a requerir un cierto procesamiento de las matrices. Esto lo podemos lograr fácilmente a través de los computed properties.-->
+    <div id="app">
+        <ul>
+            <li v-for="item in sortItems">
+                {{ item }}
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    items: [5, 9, 6, 2, 3, 1, 8, 4, 7]
+                }
+            },
+            computed: {
+                sortItems() {
+                    return this.items.sort()
+                }
+            }
+        });
+
+        const vm = app.mount('#app');
+
+    </script>
+
+</body>
+
+</html>

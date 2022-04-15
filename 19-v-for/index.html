@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for</title>
+</head>
+
+<body>
+    <!--Existe una directiva que nos permite iterar sobre una matriz llamada v-for-->
+    <div id="app">
+        <ul>
+            <!--<li v-for="item in items">-->
+            <!--También puede emplear la palabra of en lugar de in-->
+            <!--<li v-for="(item, index) of items">-->
+            <!--Para asegurar que Vue realice un rastreo apropiado de cada elemento de la lista es conveniente y una buena práctica emplear el atributo key junto con la directiva v-for-->
+            <!--No use tipos de datos no primitivos como matrices u objetos como valores para key. Use strings o valores numéricos en su lugar.-->
+            <div v-for="item in items" :key="item.id">
+                {{item.id}} -- {{ item.message }}
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    items: [
+                        { id:1, message: 'Pablo' },
+                        { id:2,message: 'Martin' },
+                        { id:3,message: 'Lopez' }
+                    ]
+                }
+            }
+        });
+
+        const vm = app.mount('#app');
+
+    </script>
+
+</body>
+
+</html>

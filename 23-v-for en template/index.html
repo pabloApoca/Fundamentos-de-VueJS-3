@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For en template</title>
+</head>
+
+<body>
+    <!--Similar to template v-if, you can also use a <template> tag with v-for to render a block of multiple elements. For example-->
+    <div id="app">
+        <ul>
+            <template v-for="item in items" :key="item.id">
+                <li>{{item.id}}</li>
+                <li>{{ item.message }}</li>
+                <hr>
+            </template>
+        </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    items: [
+                        { id: 1, message: 'Pablo' },
+                        { id: 2, message: 'Martin' },
+                        { id: 3, message: 'Lopez' }
+                    ]
+                }
+            }
+        });
+
+        const vm = app.mount('#app');
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for con v-if</title>
+</head>
+
+<body>
+
+    <!--Tenga en cuenta que no se recomienda utilizar v-if y v-for juntos. Consulte la guía de estilo para obtener más detalles.
+
+    Cuando existen en el mismo nodo, v-if tiene una prioridad más alta que v-for. Eso significa que la condición v-if no tendrá acceso a las variables del alcance de la v-for-->
+    <div id="app">
+
+        <template v-for="item in items" :key="item.id">
+            <li v-if="item.id ===2">
+                {{item.id}} <br>
+                {{ item.message }}
+                <hr>
+            </li>
+          </template>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    items: [
+                        { id: 1, message: 'Pablo' },
+                        { id: 2, message: 'Martin' },
+                        { id: 3, message: 'Lopez' }
+                    ]
+                }
+            }
+        });
+
+        const vm = app.mount('#app');
+
+    </script>
+
+</body>
+
+</html>

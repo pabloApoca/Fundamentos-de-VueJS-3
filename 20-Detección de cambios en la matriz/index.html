@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for</title>
+</head>
+
+<body>
+    <!--Mutación de la matriz
+
+Vue envuelve los métodos de mutación para que estos puedan actualizar la vista. Los métodos envueltos son:
+
+push()
+
+pop()
+
+shift()
+
+unshift()
+
+splice()
+
+sort()
+
+reverse()-->
+
+<!--
+    Reemplazar la matriz
+En el caso de los mutadores, cambian la matriz, por otro lado tenemos métodos que reemplazan y devuelven un nuevo arreglo.
+
+Tenemos los siguientes métodos:
+
+filter()
+
+concat()
+
+slice()
+-->
+    <div id="app">
+        <ul>
+            <li v-for="(item, index) in items">
+                {{ item.message }}
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    items: [
+							{message: 'Hola Mundo'},
+							{message: 'Hola planeta'},
+							{message: 'Adios Mundo'},
+                            {message: 'Adios planeta'}
+						]
+                }
+            }
+        });
+        //vm.$data.items.push({message:'aloja'})
+        //vm.$data.items = vm.$data.items.filter(item => item.message.match(/Hola/));
+
+        const vm = app.mount('#app');
+
+    </script>
+
+</body>
+
+</html>

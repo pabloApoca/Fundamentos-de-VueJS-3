@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show</title>
+</head>
+
+<body>
+    <!--v-show tiene basicamente el mismo comportamiento, con la diferencia de que v-show, simepre va a renderizar el contenido.
+       y la visibilidad o no de un elemento es regulado mediante CSS, mientras que con v-if, si la condición no se cumple, 
+       el elmento no es renderizado-->
+    <div id="app">
+      <h1 v-if="ok">Esto es con v-if</h1>
+      <h1 v-show="ok">Esto es con v-show</h1>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    ok: true
+                }
+            }
+        });
+        //Probar en consola vm.$data.ok = false
+
+        const vm = app.mount('#app');
+
+    </script>
+
+</body>
+
+</html>

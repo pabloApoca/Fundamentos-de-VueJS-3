@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methods</title>
+</head>
+
+<body>
+    <!--En algunos casos donde las propiedades computadas no son factibles, podemos emplear un método. Por ejemplo en las listas anidadas-->
+    <div id="app">
+        <ul v-for="numbers in sets">
+            <li v-for="n in even(numbers)" :key="n">{{ n }}</li>
+        </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    sets: [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]
+                }
+            },
+            methods: {
+                even(numbers) {
+                    return numbers.filter(number => number % 2 === 0);
+                }
+            }
+        });
+
+        const vm = app.mount('#app');
+
+    </script>
+
+</body>
+
+</html>
