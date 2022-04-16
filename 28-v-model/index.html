@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <!--El enlace de datos entre un input y las propiedades de nuestro componente de Vue es un poco diferente a la interpolación de texto.
+
+En el caso de los inputs debemos establecer una conexión en ambas direcciones, es decir, por un lado, la dirección que va de la propiedad al valor del input, y por otro lado los datos que van del usuario hacia el valor de la propiedad.
+
+Esta vinculación se consigue de una manera muy sencilla con la directiva v-model.
+
+-->
+
+    <div id="app">
+
+        <!--<input type="text" v-model="message">
+        <p>{{ message }}</p>-->
+
+        <!--En el caso de textareas podremos colocar mensajes de varias líneas aplicando los estilos style="white-space: pre-line;" al párrafo, incluso interpolar etiqutas html con la directiva v-html-->
+        <textarea v-model="message"></textarea>
+        <p style="white-space: pre-line;">{{ message }}</p>
+
+        <!--Ahora vamos a ocupar la propiedad v-html para mostrar el texto con HTML-->
+        <textarea v-model="message"></textarea>
+        <p style="white-space: pre-line;" v-html="message"></p>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.0.5/dist/vue.global.prod.js"></script>
+
+    <script>
+
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: ''
+                }
+            }
+        });
+
+        app.mount('#app');
+
+    </script>
+</body>
+
+</html>

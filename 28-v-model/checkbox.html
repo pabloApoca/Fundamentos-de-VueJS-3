@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <!--De manera predeterminada, los checkbox retornan un valor booleano-->
+
+    <div id="app">
+
+        <input type="checkbox" id="checkbox" v-model="checked" />
+        <label for="checkbox">{{ checked }}</label>
+        <br>
+        <br>
+        <!--También podemos vincular una matriz de checkbox-->
+        <input id="jorge" type="checkbox" v-model="names" value="Jorge" />
+        <label for="jorge">Jorge</label>
+     
+        <input id="raul" type="checkbox" v-model="names" value="Raul" />
+        <label for="raul">Raul</label>
+     
+        <input id="rafael" type="checkbox" v-model="names" value="Rafael" />
+        <label for="rafael">Rafael</label>
+        
+        <p>{{ names }}</p>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.0.5/dist/vue.global.prod.js"></script>
+
+    <script>
+
+        const app = Vue.createApp({
+            data() {
+                return {
+                    checked: false,
+                    names: []
+                }
+            }
+        });
+
+        app.mount('#app');
+
+    </script>
+</body>
+
+</html>

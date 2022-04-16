@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <!--En el caso de los input de radio, el proceso es similar al de los checkbox. En el HTML solo cambiamos el type por radio y en el lado de VueJS quitamos el valor de matriz, y lo cambiamos por un string.-->
+
+    <div id="app">
+        <input id="jorge" type="radio" v-model="names" value="Jorge" />
+        <label for="jorge">Jorge</label>
+
+        <input id="raul" type="radio" v-model="names" value="Raul" />
+        <label for="raul">Raul</label>
+
+        <input id="rafael" type="radio" v-model="names" value="Rafael" />
+        <label for="rafael">Rafael</label>
+        <br><br>
+        <p>{{ names }}</p>
+        <br>
+        <p>Selección única</p>
+        <br>
+        <select v-model="names">
+            <option disabled value="">Elige una opción</option>
+            <option>Raul</option>
+            <option>Ulieses</option>
+            <option>Jesus</option>
+        </select>
+
+        <p>Seleccionado: {{ names }}</p>
+
+        <br><br>
+        <p>Selección múltiple</p>
+
+        <select v-model="names2" multiple>
+            <option disabled value="">Elige una opción</option>
+            <option>Raul</option>
+            <option>Ulieses</option>
+            <option>Jesus</option>
+        </select>
+
+        <p>Seleccionado: {{ names2 }}</p>
+
+    </div>
+
+    <script src="https://unpkg.com/vue@3.0.5/dist/vue.global.prod.js"></script>
+
+    <script>
+
+        const app = Vue.createApp({
+            data() {
+                return {
+                    names: '',
+                    names2: []
+
+                }
+            }
+        });
+
+        app.mount('#app');
+
+    </script>
+</body>
+
+</html>

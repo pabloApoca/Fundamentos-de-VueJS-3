@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Componentes</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>Los componentes son instancias reutilizables que podemos usar dentro de la instancia raíz de nuestra
+            aplicación.
+
+        </p>
+        <button-counter>a</button-counter>
+        <button-counter>b</button-counter>
+        <button-counter>c</button-counter>
+
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    count: 0
+                }
+            },
+            template: `
+    <button v-on:click="count++">
+      Diste clic {{ count }} veces.
+    </button>`
+        });
+        app.component('button-counter', {
+            data() {
+                return {
+                    count: 0
+                }
+            },
+            template: `
+    <button v-on:click="count++">
+      Diste clic {{ count }} veces.
+    </button>`
+        })
+
+
+
+
+        const vm = app.mount('#app');
+
+    </script>
+
+</body>
+
+</html>

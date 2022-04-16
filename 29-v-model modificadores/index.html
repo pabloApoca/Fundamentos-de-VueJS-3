@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-model - modificadores</title>
+</head>
+
+<body>
+    <!--v-model sincroniza los datos después de cada evento input. Es posible retardar este evento hasta que ocurra el evento change.
+
+Por ejemplo, en el siguiente input, los valores se modifican en cada evento input:-->
+    <div id="app">
+        <p>Ahora vamos a añadir el modificador .lazy</p>
+        <input type="text" v-model.lazy="message">
+        <p>{{message}}</p>
+        <br><br>
+        <p>Permite encasillar el input a un tipo de dato numérico</p>
+        <input type="number" v-model.number="age">
+        <p>{{age}}</p>
+        <br><br>
+        <p>.trim
+            Permite recortar los espacios en blanco, antes y después del input</p>
+        <input type="text" v-model.number="modtrim">
+        <p>{{modtrim}}</p>
+
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: '',
+                    age: '',
+                    modtrim: ''
+                }
+            }
+        });
+
+        const vm = app.mount('#app');
+
+    </script>
+
+</body>
+
+</html>
